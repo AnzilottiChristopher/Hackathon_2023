@@ -47,7 +47,7 @@ public class ReactionGame implements Runnable {
     public void run() {
         JFrame frame = new JFrame("Reaction Time Game");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
+
         frame.add(createUpperPanel(), BorderLayout.BEFORE_FIRST_LINE);
         this.drawingPanel = new DrawingPanel();
         frame.add(drawingPanel, BorderLayout.CENTER);
@@ -56,6 +56,19 @@ public class ReactionGame implements Runnable {
         frame.pack();
         frame.setLocationByPlatform(true);
         frame.setVisible(true);
+
+        JButton close = new JButton("Close");
+        frame.add(close);
+        close.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                Quiz quiz = new Quiz();
+                frame.dispose();
+            }
+        });
+
     }
     //end of run
 
