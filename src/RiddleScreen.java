@@ -96,6 +96,16 @@ public class RiddleScreen
 //        correctAnswer.setPreferredSize(buttonSize);
 //        falseAnswer.setPreferredSize(buttonSize);
 
+        correctAnswer.addActionListener(e ->
+        {
+            Variables.puzzle = Variables.puzzle + 5;
+            //System.out.println(Variables.puzzle);
+        });
+        falseAnswer.addActionListener(e ->
+        {
+            Variables.puzzle = Variables.puzzle - 5;
+        });
+
         JTextArea riddle = new JTextArea("In a certain city, 5% of all the people in town have unlisted phone numbers. " +
                 "If you select 100 names at random from that city's phone directory, how many people selected " +
                 "will have unlisted phone numbers?");
