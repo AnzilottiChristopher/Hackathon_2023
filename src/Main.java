@@ -4,6 +4,9 @@ public class Main
     {
         RiddleScreen riddleScreen = new RiddleScreen();
 
-        riddleScreen.initialize();
+        riddleScreen.initialize(); 
+
+        ReactionGame game = new ReactionGame(); 
+        game.run();
     }
 }
