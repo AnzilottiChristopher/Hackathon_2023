@@ -131,7 +131,8 @@ public class ReactionGame implements Runnable {
         
         rTimes.add(time); //to index through, and store
         
-        System.out.println(rTimes);
+        System.out.println(rTimes); 
+
 
 
     } 
@@ -139,6 +140,16 @@ public class ReactionGame implements Runnable {
     public double getReactionTime(){
         return 0.001 * reactionTime;
 
+    } 
+
+    public double avgReactionTime(ArrayList<Double> list){
+        
+        double result = 0.0;
+        for(int i = 1; i< list.size(); i++){
+            
+            result = (result + list.get(i))/list.size()-1;
+        } 
+        return result;
     }
     
 
