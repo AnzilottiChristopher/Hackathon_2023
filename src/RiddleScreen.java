@@ -20,7 +20,7 @@ public class RiddleScreen
 
         //Start messages
         JLabel welcomeMessage = new JLabel("Welcome to the riddle portion!");
-        JButton nextButton = new JButton("Next");
+        JButton nextButton = new JButton("Start");
         GridBagConstraints gbc = new GridBagConstraints();
         startPanel.setLayout(new GridBagLayout());
 
@@ -43,7 +43,7 @@ public class RiddleScreen
         cardPanel.add(startPanel, "Card1");
 
         JPanel card2 = new JPanel();
-        card2.add(new JLabel("Card 2 Content"));
+        card2.add(new JLabel("Riddle"));
         cardPanel.add(card2, "Card2");
 
         //Listening for button press and changing screen
@@ -52,7 +52,7 @@ public class RiddleScreen
             startPanel.removeAll();
             startPanel.revalidate();
             startPanel.repaint();
-            firstRiddle();
+            Riddle();
         });
 
 
@@ -68,7 +68,7 @@ public class RiddleScreen
         cardLayout.show(cardPanel, "Card1");
 
         mainFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        mainFrame.setSize(800, 800);
+        mainFrame.setSize(1000, 800);
 
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int centerX = (int) (screenSize.getWidth() - mainFrame.getWidth()) / 2;
@@ -79,10 +79,48 @@ public class RiddleScreen
 
     }
 
-    private void firstRiddle()
+    private void Riddle()
     {
         cardLayout.next(cardPanel);
 
+        //Setting main panel
+        JPanel riddlePanel = new JPanel();
+        riddlePanel.setLayout(new BorderLayout());
+
+        //Creating Buttons
+        JButton correctAnswer = new JButton("None");
+        JButton falseAnswer = new JButton("5");
+
+        //Buttons Sizes
+//        Dimension buttonSize = new Dimension(50, 50);
+//        correctAnswer.setPreferredSize(buttonSize);
+//        falseAnswer.setPreferredSize(buttonSize);
+
+        JTextArea riddle = new JTextArea("In a certain city, 5% of all the people in town have unlisted phone numbers. " +
+                "If you select 100 names at random from that city's phone directory, how many people selected " +
+                "will have unlisted phone numbers?");
+
+        Font largerFont = new Font(riddle.getFont().getName(), Font.PLAIN, 24);
+
+        //Font stuff
+        riddle.setFont(largerFont);
+        riddle.setWrapStyleWord(true);
+        riddle.setLineWrap(true);
+        riddle.setOpaque(false);
+        riddle.setEditable(false);
+        riddle.setFocusable(false);
+
+
+        //Adding components
+        riddlePanel.add(riddle, BorderLayout.NORTH);
+        riddlePanel.add(correctAnswer, BorderLayout.EAST);
+        riddlePanel.add(falseAnswer, BorderLayout.WEST);
+
+        //Adding riddlePanel to cardPanel
+        cardPanel.add(riddlePanel, "RiddleCard");
+
+        //Showing riddleCard
+        cardLayout.show(cardPanel, "RiddleCard");
     }
 
 
