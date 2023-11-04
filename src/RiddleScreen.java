@@ -52,7 +52,7 @@ public class RiddleScreen
             startPanel.removeAll();
             startPanel.revalidate();
             startPanel.repaint();
-            cardLayout.next(cardPanel);
+            firstRiddle();
         });
 
 
@@ -79,6 +79,11 @@ public class RiddleScreen
 
     }
 
+    private void firstRiddle()
+    {
+        cardLayout.next(cardPanel);
+
+    }
 
 
 
