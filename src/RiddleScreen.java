@@ -99,11 +99,17 @@ public class RiddleScreen
         correctAnswer.addActionListener(e ->
         {
             Variables.puzzle = Variables.puzzle + 5;
+            ReactionGame reactionGame = new ReactionGame();
+            mainFrame.dispose();
+            reactionGame.run();
             //System.out.println(Variables.puzzle);
         });
         falseAnswer.addActionListener(e ->
         {
             Variables.puzzle = Variables.puzzle - 5;
+            ReactionGame reactionGame = new ReactionGame();
+            mainFrame.dispose();
+            reactionGame.run();
         });
 
         JTextArea riddle = new JTextArea("In a certain city, 5% of all the people in town have unlisted phone numbers. " +

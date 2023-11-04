@@ -6,4 +6,6 @@ public class Variables
     public static int platformer = 0;
     public static int actionAdventure = 0;
 
+    //public static boolean screenLogic = false;
+
 }
