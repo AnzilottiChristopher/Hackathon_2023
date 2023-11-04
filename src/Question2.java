@@ -4,13 +4,21 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.ButtonGroup;
-import javax.swing.ButtonModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 
-public class Question extends JFrame implements ActionListener{
+/*
+ * Genres:
+ * RPG
+ * Puzzle
+ * Shooter
+ * Platformer
+ * Action-Adventure
+ */
+
+public class Question2 extends JFrame implements ActionListener{
 
     private int width = 1000;
     private int height = 500;
@@ -20,17 +28,8 @@ public class Question extends JFrame implements ActionListener{
     private JRadioButton answerButton3;
     private JRadioButton answerButton4;
 
-    ButtonGroup groupOptions;
 
-    private boolean s1 = false;
-    private boolean s2 = false;
-    private boolean s3 = false;
-    private boolean s4 = false;
-
-
-
-
-    Question(){
+    Question2(){
         getContentPane().setBackground(Color.WHITE);
         setLayout(null);
 
@@ -40,8 +39,8 @@ public class Question extends JFrame implements ActionListener{
         // add(heading);
 
         // create questions here
-        createQuestion("1. Which do you prefer?");
-        createAnswers("Leveling up over the course of a game", "Figuring out tough puzzles", "Jumping over and around obstacles", "Shooting other players");
+        createQuestion("2. Which method of defeating enemies do you like the most?");
+        createAnswers("Jumping on them", "Using a gun", "Using a sword", "I don't like fighting enemies");
 
         JButton start = new JButton("Next");
         start.setBounds(width/2, 400, 120, 25);
@@ -91,7 +90,7 @@ public class Question extends JFrame implements ActionListener{
 
         add(answerButton4);
 
-        groupOptions = new ButtonGroup();
+        ButtonGroup groupOptions = new ButtonGroup();
         groupOptions.add(answerButton1);
         groupOptions.add(answerButton2);
         groupOptions.add(answerButton3);
@@ -108,25 +107,24 @@ public class Question extends JFrame implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        
         if (e.getSource().equals(answerButton1)){
-            Variables.RPG += 1;
-        }
-        else if (e.getSource().equals(answerButton2)){
-            Variables.puzzle += 1;
-        }
-        else if (e.getSource().equals(answerButton3)){
             Variables.platformer += 1;
         }
-        else if (e.getSource().equals(answerButton4)){
+        else if (e.getSource().equals(answerButton2)){
             Variables.shooter += 1;
         }
-        Question2 question2 = new Question2();
+        else if (e.getSource().equals(answerButton3)){
+            Variables.RPG += 1;
+        }
+        else if (e.getSource().equals(answerButton4)){
+            Variables.puzzle += 1;
+        }
+        Question3 question3 = new Question3();
         this.setVisible(false);
     }
     
     public static void main(String[] args){
-        new Question();
+        new Question2();
     }
     
 }
