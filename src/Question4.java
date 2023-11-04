@@ -124,6 +124,8 @@ public class Question4 extends JFrame implements ActionListener{
         System.out.println("Platformer" + Variables.platformer);
         System.out.println("Puzzle" + Variables.puzzle);
         System.out.println("Shooter" + Variables.shooter);
+
+        Math.max(Math.max(Variables.RPG, Variables.actionAdventure), Math.max(Variables.platformer, Math.max(Variables.puzzle, Variables.shooter)));
     }
     
     public static void main(String[] args){
